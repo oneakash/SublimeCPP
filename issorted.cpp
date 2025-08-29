@@ -1,21 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool solve()
+void moveZeroes(vector<int>& nums) {
+	remove(nums.begin(), nums.end(), 0);
+}
+void solve()
 {
 	int n;
 	cin >> n;
-	vector<int> v(n);
-	for (auto &a : v)
+	vector<int> nums(n);
+	for (auto &a : nums)
 		cin >> a;
-	for (int i = 0; i < n - 1; i++)
+	moveZeroes(nums);
+	for (int i = 0; i < n; i++)
 	{
-		if (v[i] > v[i + 1])
-			return false;
+		cout << nums[i] << " ";
 	}
-	return true;
+	cout << endl;
 }
 int main()
 {
-	cout << solve() << endl;
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
+	solve();
 	return 0;
 }
